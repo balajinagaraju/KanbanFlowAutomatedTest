@@ -12,4 +12,11 @@ public class KanbanLoginPage {
 		System.out.println("Hello");
 	}
 
+	@Test
+	public void simple() {
+
+		System.out.println("Simple");
+
+	}
+
 }
