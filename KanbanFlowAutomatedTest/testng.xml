@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Kanban Test">
+	<parameter name="appURL" value="https://kanbanflow.com/" />
+	<parameter name="browserType" value="firefox" />
+	<test name="Sanity test">
+		<classes>
+			<class name="com.suvi.tests.BaseTest" />
+		</classes>
+	</test>
+</suite>

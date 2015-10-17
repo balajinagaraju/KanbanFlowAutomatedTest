@@ -3,9 +3,9 @@
 <suite verbose="0" name="Failed suite [Default suite]">
   <test name="Default test(failed)" preserve-order="false">
     <classes>
-      <class name="com.suvi.tests.TestKanbanLogin">
+      <class name="com.suvi.tests.BaseTest">
         <methods>
-          <include name="LoginTest"/>
+          <include name="verifyHomePage"/>
         </methods>
       </class>
     </classes>

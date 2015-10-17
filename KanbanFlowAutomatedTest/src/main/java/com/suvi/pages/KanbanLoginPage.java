@@ -1,10 +1,14 @@
 package com.suvi.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class KanbanLoginPage extends GenericPageObject {
+public class KanbanLoginPage {
+
+	private WebDriver driver;
 
 	// ####################
 	// Variable definitions
@@ -13,43 +17,43 @@ public class KanbanLoginPage extends GenericPageObject {
 	// The title page
 	public final static String TITLE = "Login";
 
-	// The emaildID text fields
-	@FindBy(xpath = ".//*[@id='email']")
-	private WebElement emaildID;
+	// EmaildID text fields
+	private By emaildIDField = By.xpath(".//*[@id='email']");
 
 	// The password text field
-	@FindBy(xpath = ".//*[@id='password']")
-	private WebElement password;
+	private By passwordField = By.xpath(".//*[@id='password']");
 
 	// The Login button
-	@FindBy(className = "loginPage-loginButton")
-	private WebElement login;
-
-	// private WebDriver mydriver;
+	private By loginbutton = By.xpath(".//*[@id='loginPage-formWrapper']/form/p[4]/button");
 
 	// The relative URL
 	public final static String RELATIVE_URL = "/login";
 
-	// public KanbanLoginPage(WebDriver driver1) {
-	//
-	// this.driver = driver1;
-	//
-	// }
-
-	public void LoginPage(String baseURL) {
-
-		System.out.println("URL " + baseURL + RELATIVE_URL);
-		this.driver.get(baseURL + RELATIVE_URL);
-		PageFactory.initElements(this.driver, BoardPage.class);
+	public KanbanLoginPage(WebDriver driver) {
+		this.driver = driver;
 	}
 
-	public BoardPage LoginIn(String Username, String Password) {
+	public String getKanbanLoginPageTitle() {
+		String pageTitle = driver.getTitle();
+		return pageTitle;
+	}
 
-		emaildID.sendKeys(Username);
-		password.sendKeys(Password);
-		login.click();
-		return PageFactory.initElements(driver, BoardPage.class);
+	public void enterUserName(String userName) {
+		WebElement emailTxtBox = driver.findElement(emaildIDField);
+		if (emailTxtBox.isDisplayed())
+			emailTxtBox.sendKeys(userName);
+	}
 
+	public void enterPassword(String password) {
+		WebElement passwordTxtBox = driver.findElement(passwordField);
+		if (passwordTxtBox.isDisplayed())
+			passwordTxtBox.sendKeys(password);
+	}
+
+	public void clickOnLoginIn() {
+		WebElement signInBtn = driver.findElement(loginbutton);
+		if (signInBtn.isDisplayed())
+			signInBtn.click();
 	}
 
 }
