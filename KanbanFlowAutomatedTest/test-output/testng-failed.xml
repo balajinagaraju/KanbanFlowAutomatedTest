@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Kanban Test]">
+  <parameter name="appURL" value="https://kanbanflow.com/"/>
+  <parameter name="browserType" value="firefox"/>
+  <test name="Sanity test(failed)" preserve-order="false">
+    <parameter name="appURL" value="https://kanbanflow.com/"/>
+    <parameter name="browserType" value="firefox"/>
+    <classes>
+      <class name="com.suvi.tests.BaseTest">
+        <methods>
+          <include name="initializeTestBaseSetup"/>
+          <include name="verifyHomePage"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>
